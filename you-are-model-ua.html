@@ -358,23 +358,29 @@
 
                 <script>
                   const checkAge = (input) => {
-                    const age =
-                      new Date().getFullYear() -
-                      new Date(input.value).getFullYear();
+                    const birthDate = new Date(input.value);
+                    const today = new Date();
+
+                    let age = today.getFullYear() - birthDate.getFullYear();
+
+                    // Якщо сьогодні ще до дня народження у цьому році, то віднімаємо 1
+                    const monthDiff = today.getMonth() - birthDate.getMonth();
+                    const dayDiff = today.getDate() - birthDate.getDate();
+
+                    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                      age--;
+                    }
+
                     const additionalFields =
                       document.querySelector(".additional-fields");
                     const hiddenInputs =
                       additionalFields.querySelectorAll("input");
 
                     if (age < 18) {
-                      // Показуємо додаткові поля
                       additionalFields.style.display = "block";
-                      // Додаємо атрибут required для обов'язкових полів
                       hiddenInputs.forEach((input) => (input.required = true));
                     } else {
-                      // Ховаємо додаткові поля
                       additionalFields.style.display = "none";
-                      // Знімаємо атрибут required для скритих полів
                       hiddenInputs.forEach((input) => (input.required = false));
                     }
                   };
