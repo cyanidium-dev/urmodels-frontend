@@ -1,0 +1,22 @@
+# WordPress core
+/wp-admin/
+/wp-includes/
+
+# WordPress uploads (media files)
+/wp-content/uploads/
+
+# Кеш
+wp-content/cache/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Mac OS / Windows
+.DS_Store
+Thumbs.db
+
+# Composer / npm
+vendor/
+node_modules/
