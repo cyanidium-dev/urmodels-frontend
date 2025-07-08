@@ -418,7 +418,7 @@
 
     <script>
       const query = encodeURIComponent(`
-    *[_type == "model"]{
+    *[_type == "model"] | order(order asc) {
       "name": name["uk"],
       "slug": slug.current,
       "mainPhoto": mainPhoto.asset->url
