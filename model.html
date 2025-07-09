@@ -182,7 +182,11 @@
             </div>
           </div>
         </div>
-        <div class="model-img" id="model-images"></div>
+        <div class="model-img">
+          <div id="model-images"></div>
+          <div id="polaroid"></div>
+        </div>
+
         <script>
           function goBack() {
             window.location.href = "your-models.html";
@@ -385,7 +389,7 @@
             const pairTpl = document.getElementById("tmpl-image-pair");
             const container = document.getElementById("model-images");
 
-            function renderImagesInPairs(urls, insertBefore = null) {
+            function renderImagesInPairs(urls, targetContainer) {
               for (let i = 0; i < urls.length; i += 2) {
                 const block = pairTpl.content.cloneNode(true);
                 const imgs = block.querySelectorAll("img");
@@ -397,22 +401,16 @@
                   imgs[1].remove();
                 }
 
-                if (insertBefore) {
-                  container.insertBefore(block, insertBefore);
-                } else {
-                  container.appendChild(block);
-                }
+                targetContainer.appendChild(block);
               }
             }
 
-            renderImagesInPairs(model.gallery);
+            renderImagesInPairs(model.gallery, container);
 
+            // рендеримо polaroids в div#polaroid
             if (model.polaroids.length) {
-              const mark = document.createElement("div");
-              mark.id = "polaroid";
-              container.appendChild(mark);
-
-              renderImagesInPairs(model.polaroids);
+              const polaroidContainer = document.getElementById("polaroid");
+              renderImagesInPairs(model.polaroids, polaroidContainer);
             }
 
             // Set dynamic <title> and meta
