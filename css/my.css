@@ -283,3 +283,10 @@ input[type="file"] {
     justify-self: center;
   }
 }
+
+.model-images,
+.polaroid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
